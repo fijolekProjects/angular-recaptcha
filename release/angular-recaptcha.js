@@ -1,5 +1,5 @@
 /**
- * angular-recaptcha build:2016-04-05 
+ * angular-recaptcha build:2016-04-06 
  * https://github.com/vividcortex/angular-recaptcha 
  * Copyright (c) 2016 VividCortex 
 **/
@@ -37,7 +37,7 @@
          * @param defaults  object which overrides the current defaults object.
          */
         provider.setDefaults = function(defaults){
-            angular.copy(config, defaults);
+            ng.copy(config, defaults);
         };
 
         /**
@@ -224,7 +224,7 @@
             link: function (scope, elm, attrs, ctrl) {
                 scope.widgetId = null;
 
-                if(ctrl && angular.isDefined(attrs.required)){
+                if(ctrl && ng.isDefined(attrs.required)){
                     scope.$watch('required', validate);
                 }
 
@@ -260,7 +260,7 @@
                         scope.$on('$destroy', destroy);
 
                         scope.$on('reCaptchaReset', function(resetWidgetId){
-                          if(angular.isUndefined(resetWidgetId) || widgetId === resetWidgetId){
+                          if(ng.isUndefined(resetWidgetId) || widgetId === resetWidgetId){
                             scope.response = "";
                             validate();
                           }
@@ -297,7 +297,7 @@
 
                 function cleanup(){
                   // removes elements reCaptcha added.
-                  angular.element($document[0].querySelectorAll('.pls-container')).parent().remove();
+                  ng.element($document[0].querySelectorAll('.pls-container')).parent().remove();
                 }
             }
         };
